@@ -62,7 +62,7 @@ printf "\e[1;32mHostname and Hosts have been configured.\e[0m"
 sed -i '37s/.//' /etc/pacman.conf # Enables Parralel Downloads (3)
 sed -i '33s/.//' /etc/pacman.conf # Enables Color in pacman
 
-pacman -S --noconfirm grub efibootmgr linux-zen-headers os-prober dialog reflector dosfstools ntfs-3g networkmanager networkmanager-openrc network-manager-applet bluez bluez-openrc firewalld firewalld-openrc openssh openssh-openrc libvirt libvirt-openrc acpi acpi_call acpid-openrc openbsd-netcat qemu edk2-ovmf bridge-utils virt-manager virt-viewer dnsmasq vde2 libguestfs pipewire pipewire-jack pipewire-alsa pipewire-pulse wireplumber
+pacman -S --noconfirm grub efibootmgr linux-zen-headers os-prober dialog dosfstools ntfs-3g networkmanager networkmanager-openrc network-manager-applet bluez bluez-openrc firewalld firewalld-openrc openssh openssh-openrc libvirt libvirt-openrc acpi acpi_call acpid-openrc openbsd-netcat qemu edk2-ovmf bridge-utils virt-manager dnsmasq vde2 pipewire pipewire-jack pipewire-alsa pipewire-pulse wireplumber
 
 printf "\e[1;32mBase packages have been installed.\e[0m"
 
