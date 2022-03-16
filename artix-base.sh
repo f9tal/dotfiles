@@ -26,11 +26,11 @@
 
 ### CREATE A SWAPFILE 
 
-dd=if/dev/zero of=/swapfile bs=1G count=2 status=progress # Creates a swapfile at root dir
-chmod 600 /swapfile # Fixes permissions for swapfile
-mkswap /swapfile # Turns file into swap
-swapon /swapfile # Enables swap
-echo "/swapfile     none  swap    defaults    0 0" >> /etc/fstab # Outputs to fstab to start at boot
+#dd=if/dev/zero of=/swapfile bs=1G count=2 status=progress # Creates a swapfile at root dir
+#chmod 600 /swapfile # Fixes permissions for swapfile
+#mkswap /swapfile # Turns file into swap
+#swapon /swapfile # Enables swap
+#echo "/swapfile     none  swap    defaults    0 0" >> /etc/fstab # Outputs to fstab to start at boot
 
 printf "\e[1;32mSwapfile has been created.\e[0m"
 
@@ -66,7 +66,7 @@ pacman -S --noconfirm grub efibootmgr linux-zen-headers os-prober dialog dosfsto
 
 printf "\e[1;32mBase packages have been installed.\e[0m"
 
-sed -i '48s/.//' /etc/makepkg.conf # Enables MultiThreading in makepkg
+sed -i '49s/.//' /etc/makepkg.conf # Enables MultiThreading in makepkg
 
 printf "\e[1;32mMulti-Threading enabled in makepkg.\e[0m"
 
@@ -108,15 +108,15 @@ echo "tommy ALL=(ALL) ALL" >> /etc/sudoers.d/tommy
 
 printf "\e[1;32mUsername tommy has been added.\e[0m"
 
-### DOWNLOAD AUR HELPER
+### DOWNLOAD AUR HELPER (Don't uncheck this)
 
-git clone https://aur.archlinux.org/paru.git ; cd paru ; makepkg -si ; cd /
+#git clone https://aur.archlinux.org/paru.git ; cd paru ; makepkg -si ; cd /
 
-sed -i '17s/.//' /etc/paru.conf #BottomUp in Paru
-sed -i '23s/.//' /etc/paru.conf #CleanAfter in Paru
+#sed -i '17s/.//' /etc/paru.conf #BottomUp in Paru
+#sed -i '23s/.//' /etc/paru.conf #CleanAfter in Paru
 
-printf "\e[1;32mParu downloaded and configured.\e[0m"
+#printf "\e[1;32mParu downloaded and configured.\e[0m"
 
 ### COMPLETION MESSAGE  
 
-printf "\e[1;32mAll operations have completed, type umount -a and reboot.\e[0m"
+printf "\e[1;32mAll operations have completed, Add user then unmount.\e[0m"
