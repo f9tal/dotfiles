@@ -31,7 +31,7 @@ echo "009" >> /etc/hostname # You can change this to whatever
 echo "127.0.0.1   localhost" >> /etc/hosts
 echo "::1   localhost" >> /etc/hosts
 echo "127.0.1.1   009.localdomain   009" >> /etc/hosts
-echo root:password | chpasswd
+echo root:password | chpasswd #CHANGE :password to YOUR PASSWORD
 
 printf "\e[1;32mHostname and Hosts have been configured.\e[0m"
 
@@ -76,7 +76,7 @@ printf "\e[1;32mServices have been enabled.\e[0m"
 
 ### ADDING USERS
 useradd -m tommy
-echo tommy:password | chpasswd 
+echo tommy:password | chpasswd # Change password to YOUR PASSWORD
 usermod -aG libvirt tommy 
 
 echo "tommy ALL=(ALL) ALL" >> /etc/sudoers.d/tommy
