@@ -11,9 +11,17 @@
 # 2. Base script has ran (artix-base.sh)
 # 3. PARU AUR Helper
 
+#INSTALL PARU
+
+git clone https://aur.archlinux.org/paru.git ; cd paru ; sudo makepkg -si ; cd /
+sed -i '17s/.//' /etc/paru.conf #BottomUp in Paru
+sed -i '23s/.//' /etc/paru.conf #CleanAfter in Paru
+
+printf "\e[1;32mParu downloaded and configured.\e[0m"
+
 
 ### CHECK FOR FASTEST MIRRORS
-sudo reflector -c Canada -a 12 --sort rate --save /etc/pacman.d/mirrorlist #Change to your country if Needed
+#sudo reflector -c Canada -a 12 --sort rate --save /etc/pacman.d/mirrorlist #Change to your country if Needed
 
 ### CONFIGURE FIREWALL
 sudo firewall-cmd --add-port=1025-65535/tcp --permanent
@@ -37,7 +45,7 @@ sudo cp /dotfiles/config/polybar/launch.sh $HOME/.config/polybar/
 sudo cp /dotfiles/config/polybar/scripts $HOME/.config/polybar/
 sudo cp /dotfiles/config/picom.conf $HOME/.config/picom.conf
 sudo cp /dotfiles/.xinitrc $HOME/.xinitrc
-sudo cp /dotfiles/config/alacritty/alacritty.yml $HOME/.config/alacritty/
+sudo cp /dotfiles/config/alacritty.yml $HOME/.config/alacritty/
 sudo cp /dotfiles/zsh $HOME/.zsh
 sudo cp /dotfiles/.zshrc $HOME/.zshrc
 

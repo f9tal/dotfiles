@@ -1,0 +1,53 @@
+#! /bin/sh
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+bspc monitor DP-0 -d II III IV V VI VII VIII IX X
+bspc monitor HDMI-0 -d I 
+$HOME/.config/polybar/launch.sh
+
+bspc config border_width         2
+bspc config window_gap           6
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config single_monocle                false
+bspc config click_to_focus                true
+bspc config split_ratio                   0.50
+bspc config borderless_monocle            true
+bspc config gapless_monocle               true
+bspc config focus_by_distance             true
+bspc config focus_follows_pointer         true
+bspc config history_aware_focus           true
+bspc config remove_disabled_monitors      true
+bspc config merge_overlapping_monitors    true
+bspc config top_padding           0
+
+
+# SMOOTH WINDOW ANIMATIONS
+bspc config pointer_motion_interval 13
+
+#polybar hidden when fullscreen for vlc, youtube, mpv ...
+#find out the name of your monitor with xrandr
+xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_DP-0)
+xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_HDMI-0)
+
+bspc rule -a Lxappearance state=floating
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^3'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+bspc rule -a Pcmanfm state=floating
+bspc rule -a discord desktop='^4' follow=on
+bspc rule -a firefox desktop='^3' follow=on
+bspc rule -a qBittorrent desktop='^6' follow=on
+bspc rule -a mpv state=floating focus=on
+bspc rule -a libreoffice-startcenter state=floating
+bspc rule -a Pavucontrol state=floating
+bspc rule -a Pcsx2 state=floating
+bspc rule -a Virt-manager desktop='^9' state=floating
+bspc rule -a libreoffice-writer desktop='^7' follow=on focus=on
+bspc rule -a PolyMC state=floating
+bspc rule -a Steam desktop='^10' follow=on state=floating
